@@ -35,5 +35,5 @@ jobs:
         with:
           args: >
             -Dsonar.projectKey=NataliPele_qa-auto-engineer-javascript-project-87
-            -Dsonar.organization=NataliPele
+            -Dsonar.organization=natalipele
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
