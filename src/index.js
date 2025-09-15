@@ -1,38 +1,17 @@
-import _ from 'lodash'
-import parse from './parser.js'
+import { readFile, getExt } from './fs.js'
+import parse from './parsers.js'
+import buildDiff from './diff.js'
+import format from './formatters/index.js'
 
-const toString = (value) => (
-  typeof value === 'string' ? value : JSON.stringify(value)
-);
+const genDiff = (filepath1, filepath2, fmt = 'stylish') => {
+  const data1 = readFile(filepath1)
+  const data2 = readFile(filepath2)
 
-const buildDiff = (obj1, obj2) => {
-  const keys = _.sortBy(_.union(Object.keys(obj1), Object.keys(obj2)))
+  const obj1 = parse(data1, getExt(filepath1))
+  const obj2 = parse(data2, getExt(filepath2))
 
-  const lines = keys.flatMap((key) => {
-    const in1 = Object.hasOwn(obj1, key)
-    const in2 = Object.hasOwn(obj2, key)
-
-    if (in1 && in2) {
-      if (_.isEqual(obj1[key], obj2[key])) {
-        return [`    ${key}: ${toString(obj1[key])}`];
-      }
-      return [
-        `  - ${key}: ${toString(obj1[key])}`,
-        `  + ${key}: ${toString(obj2[key])}`,
-      ]
-    }
-
-    if (in1) return [`  - ${key}: ${toString(obj1[key])}`]
-    return [`  + ${key}: ${toString(obj2[key])}`]
-  })
-
-  return `{\n${lines.join('\n')}\n}`
+  const tree = buildDiff(obj1, obj2)
+  return format(tree, fmt)
 }
 
-const genDiff = (filepath1, filepath2) => {
-  const obj1 = parse(filepath1)
-  const obj2 = parse(filepath2)
-  return buildDiff(obj1, obj2)
-}
-
-export default genDiff;
+export default genDiff

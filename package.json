@@ -17,6 +17,7 @@
   "author": "Natalia",
   "type": "module",
   "main": "src/index.js",
+  "js-yaml": "^4.1.0",
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watch",
@@ -24,6 +25,7 @@
   },
   "dependencies": {
     "commander": "^14.0.0",
+    "js-yaml": "^4.1.0",
     "lodash": "^4.17.21"
   },
   "bin": {
