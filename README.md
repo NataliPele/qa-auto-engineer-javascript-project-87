@@ -11,3 +11,4 @@
 ### Demo:
 [![asciicast](https://asciinema.org/a/dfOi7F0tz0quIpR7lwarkgmJq.svg)](https://asciinema.org/a/dfOi7F0tz0quIpR7lwarkgmJq)
 [![asciicast](https://asciinema.org/a/Jz2rahhV5QWuCNdNgG4GzF42l.svg)](https://asciinema.org/a/Jz2rahhV5QWuCNdNgG4GzF42l)
+[![asciicast](https://asciinema.org/a/gz434Dm9TbCRauQ7i8okk9QKs.svg)](https://asciinema.org/a/gz434Dm9TbCRauQ7i8okk9QKs)
