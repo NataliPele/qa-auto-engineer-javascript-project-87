@@ -1,8 +1,8 @@
 import _ from 'lodash'
 
 const INDENT_SIZE = 4
-const indent = (depth) => ' '.repeat(depth * INDENT_SIZE - 2)
-const braceIndent = (depth) => ' '.repeat(depth * INDENT_SIZE)
+const indent = depth => ' '.repeat(depth * INDENT_SIZE - 2)
+const braceIndent = depth => ' '.repeat(depth * INDENT_SIZE)
 
 const stringify = (val, depth) => {
   if (!_.isPlainObject(val)) return String(val)
@@ -10,7 +10,7 @@ const stringify = (val, depth) => {
     .entries(val)
     .map(([k, v]) => `${braceIndent(depth + 1)}${k}: ${stringify(v, depth + 1)}`)
   return `{\n${lines.join('\n')}\n${braceIndent(depth)}}`
-};
+}
 
 const stylish = (tree) => {
   const iter = (nodes, depth) => {
@@ -21,11 +21,11 @@ const stylish = (tree) => {
         case 'nested':
           return `${braceIndent(depth)}${key}: ${iter(children, depth + 1)}`
         case 'unchanged':
-          return `${indent(depth)}  ${key}: ${stringify(value, depth)}`;
+          return `${indent(depth)}  ${key}: ${stringify(value, depth)}`
         case 'removed':
-          return `${indent(depth)}- ${key}: ${stringify(value, depth)}`;
+          return `${indent(depth)}- ${key}: ${stringify(value, depth)}`
         case 'added':
-          return `${indent(depth)}+ ${key}: ${stringify(value, depth)}`;
+          return `${indent(depth)}+ ${key}: ${stringify(value, depth)}`
         case 'updated':
           return [
             `${indent(depth)}- ${key}: ${stringify(oldValue, depth)}`,

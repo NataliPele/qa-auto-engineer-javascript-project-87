@@ -1,3 +1,3 @@
-const jsonFormatter = (tree) => JSON.stringify(tree, null, 2)
+const jsonFormatter = tree => JSON.stringify(tree, null, 2)
 
 export default jsonFormatter

@@ -4,7 +4,7 @@ const formatValue = (value) => {
   if (_.isPlainObject(value)) return '[complex value]'
   if (typeof value === 'string') return `'${value}'`
   return String(value)
-};
+}
 
 const plain = (tree) => {
   const iter = (nodes, pathAcc) => nodes
@@ -29,6 +29,6 @@ const plain = (tree) => {
     })
 
   return iter(tree, '').join('\n')
-};
+}
 
 export default plain

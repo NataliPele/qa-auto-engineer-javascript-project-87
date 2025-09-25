@@ -5,8 +5,8 @@ import genDiff from '../src/index.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
-const getFixturePath = (name) => path.join(__dirname, '..', '__fixtures__', name)
-const read = (name) => fs.readFileSync(getFixturePath(name), 'utf-8')
+const getFixturePath = name => path.join(__dirname, '..', '__fixtures__', name)
+const read = name => fs.readFileSync(getFixturePath(name), 'utf-8')
 
 test('gendiff json formatter on flat JSON', () => {
   const f1 = getFixturePath('file1.json')
