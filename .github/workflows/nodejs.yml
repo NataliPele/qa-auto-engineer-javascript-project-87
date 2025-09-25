@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@7d7719e792a64857574fc34c364701c3d3bb8a08
 
       - name: Use Node.js 22.x
         uses: actions/setup-node@v4
@@ -29,7 +29,7 @@ jobs:
         run: make test-coverage
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v2
+        uses: SonarSource/sonarcloud-github-action@e44258b109568baa0df60ed515909fc6c72cba92
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
