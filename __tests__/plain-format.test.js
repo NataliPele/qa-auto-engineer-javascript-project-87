@@ -16,7 +16,7 @@ test('gendiff plain format on flat json', () => {
 
   const result = genDiff(f1, f2, 'plain').trim()
   expect(result).toBe(expected)
-});
+})
 
 test('gendiff plain format on flat yaml', () => {
   const f1 = getFixturePath('file1.yml')
